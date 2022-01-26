@@ -50,6 +50,7 @@ const ProductsList = () => {
 
         if(productInCart && productInCart.quantity < item.countInStock){
             productInCart.quantity++;
+            productInCart.countInStock--;
     } else{
         alert("Kiekis nepakankamas, mes susisieksime");
     }
@@ -66,7 +67,8 @@ const ProductsList = () => {
             (localVar) => item.id === localVar.id
         ) 
         if(productInCart && productInCart.quantity > 1){
-            productInCart.quantity --;           
+            productInCart.quantity --;   
+            productInCart.countInStock++;        
            
         } else{
            newCart.splice(productInCart, 1);
